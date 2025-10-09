@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddDonationActivity">
+
+    <!-- Back button -->
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="495dp"
+        android:layout_height="972dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/back"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp" />
+
+    <!-- Home button -->
+    <ImageView
+        android:id="@+id/ivHome"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/home"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvDonateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DONATE NOW"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/ivBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Name & Surname Label -->
+    <TextView
+        android:id="@+id/tvNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME AND SURNAME"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tvDonateTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <!-- Name & Surname Input -->
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:hint="John Doe"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_orange"
+        android:textColorHint="#999999"
+        app:layout_constraintTop_toBottomOf="@id/tvNameLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Donation Type Label -->
+    <TextView
+        android:id="@+id/tvTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DONATION TYPE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@id/etName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Donation Type Spinner -->
+    <Spinner
+        android:id="@+id/spinnerType"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:background="@drawable/rounded_edittext_orange"
+        app:layout_constraintTop_toBottomOf="@id/tvTypeLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Donation Amount Label -->
+    <TextView
+        android:id="@+id/tvAmountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DONATION AMOUNT (IF APPLICABLE)"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@id/spinnerType"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Donation Amount Input -->
+    <EditText
+        android:id="@+id/etAmount"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:hint="R0.00"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_orange"
+        android:textColorHint="#999999"
+        app:layout_constraintTop_toBottomOf="@id/tvAmountLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Description Label -->
+    <TextView
+        android:id="@+id/tvDescLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONTACT DETAILS"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@id/etAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Description Input -->
+    <EditText
+        android:id="@+id/etDesc"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:hint="Optional notes..."
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_orange"
+        android:textColorHint="#999999"
+        app:layout_constraintTop_toBottomOf="@id/tvDescLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Date Label -->
+    <TextView
+        android:id="@+id/tvDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DATE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@id/etDesc"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Date Input -->
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:hint="Select date"
+        android:focusable="false"
+        android:clickable="true"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_orange"
+        android:textColorHint="#999999"
+        app:layout_constraintTop_toBottomOf="@id/tvDateLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- ADD Button -->
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="120dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/outline_button_orange"
+        android:text="ADD"
+        android:textAllCaps="false"
+        android:textColor="#FFA726"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDate" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

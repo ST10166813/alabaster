@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddTestimonyActivity">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/etName2"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/rounded_edittext_orange"
+        android:hint="Give you testimoney a title"
+        android:padding="12dp"
+        android:textColorHint="#999999"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDateLabel2" />
+
+    <TextView
+        android:id="@+id/tvDateLabel2"
+        android:layout_width="39dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:text="Title"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDate" />
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/back"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp" />
+
+    <!-- Home button -->
+    <ImageView
+        android:id="@+id/ivHome"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/home"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvAddTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD YOUR TESTIMONY"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/ivBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Name & Surname Label -->
+    <TextView
+        android:id="@+id/tvNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME AND SURNAME"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvAddTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp" />
+
+    <!-- Name & Surname Input -->
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:hint="John Doe"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_orange"
+        android:textColorHint="#999999"
+        app:layout_constraintTop_toBottomOf="@id/tvNameLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Date Label -->
+    <TextView
+        android:id="@+id/tvDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DATE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/etName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Date Input (non-editable, open DatePicker) -->
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:hint="Select date"
+        android:focusable="false"
+        android:clickable="true"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_orange"
+        android:textColorHint="#999999"
+        app:layout_constraintTop_toBottomOf="@id/tvDateLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tvTestimonyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="YOUR TESTIMONY"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPreview" />
+
+    <EditText
+        android:id="@+id/etTestimony"
+        android:layout_width="386dp"
+        android:layout_height="238dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_orange"
+        android:gravity="top"
+        android:hint="Write your testimony here..."
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        android:textColorHint="#999999"
+        app:layout_constraintBottom_toTopOf="@id/btnAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTestimonyLabel"
+        app:layout_constraintVertical_bias="0.085" />
+
+    <TextView
+        android:id="@+id/tvImageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="UPLOAD IMAGE (Optional)"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName2" />
+
+    <ImageView
+        android:id="@+id/ivPreview"
+        android:layout_width="97dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="19dp"
+        android:background="@drawable/rounded_edittext_orange"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/btnSelectImage"
+        app:layout_constraintHorizontal_bias="0.325"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvImageLabel" />
+
+    <Button
+        android:id="@+id/btnSelectImage"
+        android:layout_width="172dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/outline_button_orange"
+        android:text="Choose Image"
+        android:textAllCaps="false"
+        android:textColor="#FFA726"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvTestimonyLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="120dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/outline_button_orange"
+        android:text="ADD"
+        android:textAllCaps="false"
+        android:textColor="#FFA726"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
