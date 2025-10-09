@@ -44,6 +44,10 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, TestimonyActivity::class.java))
         }
 
+        binding.PrayerRequestsBtn.setOnClickListener {
+            startActivity(Intent(this, AddPrayerRequestActivity::class.java))
+        }
+
     }
 
     private fun logoutUser() {

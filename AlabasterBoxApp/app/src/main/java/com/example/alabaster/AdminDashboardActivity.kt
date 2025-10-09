@@ -30,6 +30,10 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.viewPrayerRequestsBtn.setOnClickListener {
+            startActivity(Intent(this, AdminPrayerRequestsActivity::class.java))
+        }
+
         // ✅ Logout
         binding.logoutBtn.setOnClickListener {
             auth.signOut()
