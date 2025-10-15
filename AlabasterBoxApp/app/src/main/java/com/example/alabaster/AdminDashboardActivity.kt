@@ -34,6 +34,10 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, AdminPrayerRequestsActivity::class.java))
         }
 
+        binding.volviewBtn.setOnClickListener {
+            startActivity(Intent(this, AdminVolunteerListActivity::class.java))
+        }
+
         // ✅ Logout
         binding.logoutBtn.setOnClickListener {
             auth.signOut()

@@ -40,6 +40,11 @@ class HomeActivity : AppCompatActivity() {
         binding.donatinbtn.setOnClickListener {
             startActivity(Intent(this, AddDonationActivity::class.java))
         }
+
+        binding.volbtn.setOnClickListener {
+            startActivity(Intent(this, VolunteerActivity::class.java))
+        }
+
         binding.testimonybtn.setOnClickListener {
             startActivity(Intent(this, TestimonyActivity::class.java))
         }

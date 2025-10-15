@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Alabaster"
         tools:targetApi="31">
         <activity
+            android:name=".AdminVolunteerListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThankYouVolunteerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VolunteerActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminPrayerRequestsActivity"
             android:exported="false" />
         <activity
