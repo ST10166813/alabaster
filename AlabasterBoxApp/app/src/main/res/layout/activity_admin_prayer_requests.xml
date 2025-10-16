@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:padding="16dp"
-    tools:context=".AdminPrayerRequestsActivity">
+    tools:context=".Admin.AdminPrayerRequestsActivity">
 
     <!-- Header / Title -->
     <TextView

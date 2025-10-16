@@ -1,4 +1,4 @@
-package com.example.alabaster
+package com.example.alabaster.Admin
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alabaster.adapter.VolunteerAdapter
 import com.example.alabaster.databinding.ActivityAdminVolunteerListBinding
 import com.example.alabaster.model.Volunteer
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class AdminVolunteerListActivity : AppCompatActivity() {
 

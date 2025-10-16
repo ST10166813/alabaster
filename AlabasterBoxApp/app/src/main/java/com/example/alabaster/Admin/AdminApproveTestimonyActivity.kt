@@ -1,17 +1,18 @@
-package com.example.alabaster
+package com.example.alabaster.Admin
 
 import android.os.Bundle
-import android.util.Base64
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.alabaster.AdminTestimonyAdapter
+import com.example.alabaster.R
 import com.example.alabaster.model.Testimony
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class AdminApproveTestimonyActivity : AppCompatActivity() {
 

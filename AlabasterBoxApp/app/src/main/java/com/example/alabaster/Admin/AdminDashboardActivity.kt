@@ -1,12 +1,20 @@
-package com.example.alabaster
+package com.example.alabaster.Admin
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.alabaster.Admin.AdminPrayerRequestsActivity
+import com.example.alabaster.Admin.AdminVolunteerListActivity
+import com.example.alabaster.LoginActivity
 import com.example.alabaster.databinding.ActivityAdminDashboardBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class AdminDashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAdminDashboardBinding
@@ -38,12 +46,16 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, AdminVolunteerListActivity::class.java))
         }
 
+        binding.addEventBtn.setOnClickListener {
+            startActivity(Intent(this, AdminAddEventActivity::class.java))
+        }
+
         // ✅ Logout
         binding.logoutBtn.setOnClickListener {
             auth.signOut()
             GoogleSignIn.getClient(
                 this,
-                com.google.android.gms.auth.api.signin.GoogleSignInOptions.DEFAULT_SIGN_IN
+                GoogleSignInOptions.DEFAULT_SIGN_IN
             ).signOut()
 
             startActivity(Intent(this, LoginActivity::class.java))
