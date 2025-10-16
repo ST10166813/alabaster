@@ -15,10 +15,10 @@
         android:theme="@style/Theme.Alabaster"
         tools:targetApi="31">
         <activity
-            android:name=".Admin.AdminAddEventActivity"
+            android:name=".admin.AdminAddEventActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdminVolunteerListActivity"
+            android:name=".admin.AdminVolunteerListActivity"
             android:exported="false" />
         <activity
             android:name=".ThankYouVolunteerActivity"
@@ -27,16 +27,16 @@
             android:name=".VolunteerActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdminPrayerRequestsActivity"
+            android:name=".admin.AdminPrayerRequestsActivity"
             android:exported="false" />
         <activity
             android:name=".AddPrayerRequestActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdminApproveTestimonyActivity"
+            android:name=".admin.AdminApproveTestimonyActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdminDashboardActivity"
+            android:name=".admin.AdminDashboardActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

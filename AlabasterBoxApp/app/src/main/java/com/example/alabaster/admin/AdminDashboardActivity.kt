@@ -1,10 +1,10 @@
-package com.example.alabaster.Admin
+package com.example.alabaster.admin
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.alabaster.Admin.AdminPrayerRequestsActivity
-import com.example.alabaster.Admin.AdminVolunteerListActivity
+import com.example.alabaster.admin.AdminPrayerRequestsActivity
+import com.example.alabaster.admin.AdminVolunteerListActivity
 import com.example.alabaster.LoginActivity
 import com.example.alabaster.databinding.ActivityAdminDashboardBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn

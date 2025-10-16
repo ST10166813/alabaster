@@ -1,4 +1,4 @@
-package com.example.alabaster.Admin
+package com.example.alabaster.admin
 
 import android.os.Bundle
 import android.widget.Toast
