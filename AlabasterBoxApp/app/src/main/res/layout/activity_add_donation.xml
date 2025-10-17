@@ -1,47 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF7F0"
     tools:context=".AddDonationActivity">
 
-    <!-- Back button -->
-
+    <!-- Soft background -->
     <ImageView
         android:id="@+id/backgroundImage"
-        android:layout_width="495dp"
-        android:layout_height="972dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/background_flipped"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Back -->
     <ImageView
         android:id="@+id/ivBack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/back"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:padding="8dp"
+        android:src="@drawable/back_icon"
+        android:contentDescription="Back"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@android:color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp" />
-
-    <!-- Home button -->
-    <ImageView
-        android:id="@+id/ivHome"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/home"
-        android:padding="8dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp" />
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp" />
 
     <!-- Title -->
     <TextView
@@ -49,175 +42,201 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DONATE NOW"
-        android:textSize="22sp"
-        android:textStyle="bold"
         android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/comfortaa_regular"
         app:layout_constraintTop_toBottomOf="@id/ivBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="4dp" />
 
-    <!-- Name & Surname Label -->
-    <TextView
-        android:id="@+id/tvNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NAME AND SURNAME"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:layout_marginStart="24dp"
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/formScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/tvDonateTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="24dp" />
-
-    <!-- Name & Surname Input -->
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:hint="John Doe"
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext_orange"
-        android:textColorHint="#999999"
-        app:layout_constraintTop_toBottomOf="@id/tvNameLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="8dp" />
-
-    <!-- Donation Type Label -->
-    <TextView
-        android:id="@+id/tvTypeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DONATION TYPE"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:layout_marginStart="24dp"
-        app:layout_constraintTop_toBottomOf="@id/etName"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <!-- Donation Type Spinner -->
-    <Spinner
-        android:id="@+id/spinnerType"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:background="@drawable/rounded_edittext_orange"
-        app:layout_constraintTop_toBottomOf="@id/tvTypeLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="8dp" />
-
-    <!-- Donation Amount Label -->
-    <TextView
-        android:id="@+id/tvAmountLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DONATION AMOUNT (IF APPLICABLE)"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:layout_marginStart="24dp"
-        app:layout_constraintTop_toBottomOf="@id/spinnerType"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <!-- Donation Amount Input -->
-    <EditText
-        android:id="@+id/etAmount"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:hint="R0.00"
-        android:inputType="numberDecimal"
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext_orange"
-        android:textColorHint="#999999"
-        app:layout_constraintTop_toBottomOf="@id/tvAmountLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="8dp" />
-
-    <!-- Description Label -->
-    <TextView
-        android:id="@+id/tvDescLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CONTACT DETAILS"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:layout_marginStart="24dp"
-        app:layout_constraintTop_toBottomOf="@id/etAmount"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <!-- Description Input -->
-    <EditText
-        android:id="@+id/etDesc"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:hint="Optional notes..."
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext_orange"
-        android:textColorHint="#999999"
-        app:layout_constraintTop_toBottomOf="@id/tvDescLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="8dp" />
-
-    <!-- Date Label -->
-    <TextView
-        android:id="@+id/tvDateLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DATE"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:layout_marginStart="24dp"
-        app:layout_constraintTop_toBottomOf="@id/etDesc"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <!-- Date Input -->
-    <EditText
-        android:id="@+id/etDate"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:hint="Select date"
-        android:focusable="false"
-        android:clickable="true"
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext_orange"
-        android:textColorHint="#999999"
-        app:layout_constraintTop_toBottomOf="@id/tvDateLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="8dp" />
-
-    <!-- ADD Button -->
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="120dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/outline_button_orange"
-        android:text="ADD"
-        android:textAllCaps="false"
-        android:textColor="#FFA726"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDate" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="22dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- NAME -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:hint="FULL NAME"
+                app:hintEnabled="true"
+                app:hintAnimationEnabled="true"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="#F29A2E"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusBottomEnd="24dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    android:textSize="13sp"
+                    android:textColorHint="#9A9A9A"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/comfortaa_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- DONATION TYPE -->
+            <TextView
+                android:id="@+id/tvTypeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DONATION TYPE"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/comfortaa_regular"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="18dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@android:color/transparent"
+                app:cardCornerRadius="24dp"
+                app:strokeColor="#F29A2E"
+                app:strokeWidth="1dp">
+
+                <Spinner
+                    android:id="@+id/spinnerType"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="12dp"
+                    android:spinnerMode="dropdown" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- AMOUNT -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:hint="DONATION AMOUNT (IF APPLICABLE)"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="#F29A2E"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusBottomEnd="24dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    android:textSize="13sp"
+                    android:textColorHint="#9A9A9A"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/comfortaa_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- CONTACT DETAILS -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:hint="CONTACT DETAILS"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="#F29A2E"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusBottomEnd="24dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    android:textSize="13sp"
+                    android:textColorHint="#9A9A9A"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/comfortaa_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- DATE -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:hint="DATE"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="#F29A2E"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:endIconMode="custom"
+                app:endIconDrawable="@android:drawable/ic_menu_my_calendar"
+                app:endIconContentDescription="Pick date">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    android:textSize="13sp"
+                    android:textColorHint="#9A9A9A"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/comfortaa_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Buttons (Rounded, spaced, modern) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="SUBMIT DONATION"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/comfortaa_regular"
+                    android:backgroundTint="#000000"
+                    app:cornerRadius="50dp"
+                    android:layout_marginBottom="14dp"
+                    app:rippleColor="#1AFFFFFF" />
 
 
-
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
