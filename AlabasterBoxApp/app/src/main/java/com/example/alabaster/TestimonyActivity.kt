@@ -37,6 +37,22 @@ class TestimonyActivity : AppCompatActivity() {
         binding.addTestimonyBtn.setOnClickListener {
             startActivity(Intent(this, AddTestimonyActivity::class.java))
         }
+
+        // Bottom navigation
+        binding.navHome.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+            overridePendingTransition(0, 0)
+        }
+
+        binding.fabAdd.setOnClickListener {
+            startActivity(Intent(this, AddTestimonyActivity::class.java))
+            overridePendingTransition(0, 0)
+        }
+
+        binding.navDonate.setOnClickListener {
+            startActivity(Intent(this, AddDonationActivity::class.java))
+            overridePendingTransition(0, 0)
+        }
     }
 
     private fun fetchApprovedTestimonies() {

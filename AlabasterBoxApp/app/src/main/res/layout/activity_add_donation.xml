@@ -154,6 +154,20 @@
                     android:fontFamily="@font/comfortaa_regular" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- BANKING DETAILS (Hidden by default) -->
+            <TextView
+                android:id="@+id/tvBankDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="16dp"
+                android:background="@drawable/border_background"
+            android:text="Banking Details:\n\nAccount Name: The Alabaster Box Anoiting Ministries \nBank: First National Bank (FNB)\nAccount Number: 62787787880\nBranch Code: 250655\nReference: Your Name - Donation"
+            android:textColor="@android:color/black"
+            android:textSize="13sp"
+            android:fontFamily="@font/comfortaa_regular"
+            android:visibility="gone" />
+
             <!-- CONTACT DETAILS -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

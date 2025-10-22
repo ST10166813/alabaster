@@ -153,6 +153,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.example.alabaster.model.Testimony
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.io.ByteArrayOutputStream
@@ -277,16 +278,18 @@ class AddTestimonyActivity : AppCompatActivity() {
 
         val testimonyId = dbRef.push().key!!
 
-        val testimony = mapOf(
-            "id" to testimonyId,
-            "name" to name,
-            "title" to title,
-            "date" to date,
-            "testimony" to testimonyText,
-            "imageBase64" to (encodedImage ?: "")
+        val testimony = Testimony(
+            id = testimonyId,
+            title = title,
+            name = name,
+            date = date,
+            testimony = testimonyText,
+            imageBase64 = encodedImage,
+            status = "pending" // <-- IMPORTANT
         )
 
         dbRef.child(testimonyId).setValue(testimony)
+
             .addOnSuccessListener {
                 Toast.makeText(this, "Testimony Added", Toast.LENGTH_SHORT).show()
                 // After adding, return to TestimonyActivity

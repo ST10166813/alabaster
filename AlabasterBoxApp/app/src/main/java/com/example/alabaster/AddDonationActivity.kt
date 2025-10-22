@@ -192,6 +192,7 @@
 package com.example.alabaster
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -228,24 +229,33 @@ class AddDonationActivity : AppCompatActivity() {
                 id: Long
             ) {
                 val selectedType = types[position]
-                if (selectedType != "Money") {
-                    // Disable and grey out the amount field
+
+                if (selectedType == "Money") {
+                    // Enable amount field
+                    binding.etAmount.isEnabled = true
+                    binding.etAmount.setHint("R0.00")
+                    binding.etAmount.setTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.black))
+                    binding.etAmount.setHintTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
+
+                    // Show banking details
+                    binding.tvBankDetails.visibility = android.view.View.VISIBLE
+
+                } else {
+                    // Disable amount field
                     binding.etAmount.isEnabled = false
                     binding.etAmount.setText("")
                     binding.etAmount.setHint("Not applicable")
                     binding.etAmount.setTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
                     binding.etAmount.setHintTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
-                } else {
-                    // Re-enable and restore normal style
-                    binding.etAmount.isEnabled = true
-                    binding.etAmount.setHint("R0.00")
-                    binding.etAmount.setTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.black))
-                    binding.etAmount.setHintTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
+
+                    // Hide banking details
+                    binding.tvBankDetails.visibility = android.view.View.GONE
                 }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
+
 
         // Date picker
         binding.etDate.setOnClickListener {
@@ -282,6 +292,11 @@ class AddDonationActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     Toast.makeText(this, "Donation added successfully!", Toast.LENGTH_SHORT).show()
                     clearFields()
+
+                    if (type != "Money") {
+                        val intent = Intent(this, DropOffMapActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Failed: ${it.message}", Toast.LENGTH_LONG).show()
