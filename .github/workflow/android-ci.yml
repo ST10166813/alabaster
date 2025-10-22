@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./android-app
+        working-directory: ./AlabasterBoxApp
 
     steps:
       - name: Checkout code
