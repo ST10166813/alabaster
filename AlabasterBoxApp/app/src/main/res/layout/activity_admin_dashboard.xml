@@ -60,6 +60,15 @@
         android:backgroundTint="@color/black"
         android:textColor="@color/white"/>
 
+    <Button
+        android:id="@+id/btndon"
+        android:text="Donations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"/>
+
 
     <Button
         android:id="@+id/logoutBtn"

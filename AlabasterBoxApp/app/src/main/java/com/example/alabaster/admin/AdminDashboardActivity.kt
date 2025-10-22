@@ -50,6 +50,10 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, AdminAddEventActivity::class.java))
         }
 
+        binding.btndon.setOnClickListener {
+            startActivity(Intent(this, AdminDonationsActivity::class.java))
+        }
+
         // ✅ Logout
         binding.logoutBtn.setOnClickListener {
             auth.signOut()

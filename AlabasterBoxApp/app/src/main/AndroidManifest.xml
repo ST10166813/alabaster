@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <!-- ✅ Permissions required for maps and location -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
         android:allowBackup="true"
@@ -18,13 +19,15 @@
         android:theme="@style/Theme.Alabaster"
         tools:targetApi="31">
         <activity
-            android:name=".DropOffMapActivity"
+            android:name=".admin.AdminDonationsActivity"
             android:exported="false" />
-
+        <!-- ✅ Google Maps API key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC2bCKAUJlk9VROidCkI_ZYQroE5YVTbL0" />
-
+            android:value="AIzaSyC2bCKAUJlk9VROidCkI_ZYQroE5YVTbL0" /> <!-- ✅ Drop-off map activity (must be exported true if using Intent) -->
+        <activity
+            android:name=".DropOffMapActivity"
+            android:exported="true" /> <!-- Other app activities -->
         <activity
             android:name=".admin.AdminAddEventActivity"
             android:exported="false" />
