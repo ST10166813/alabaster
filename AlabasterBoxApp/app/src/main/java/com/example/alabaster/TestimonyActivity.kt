@@ -65,6 +65,22 @@ class TestimonyActivity : AppCompatActivity() {
             startActivity(Intent(this, AddTestimonyActivity::class.java))
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
+
+        // Bottom navigation
+        binding.navHome.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+            overridePendingTransition(0, 0)
+        }
+
+        binding.fabAdd.setOnClickListener {
+            startActivity(Intent(this, AddTestimonyActivity::class.java))
+            overridePendingTransition(0, 0)
+        }
+
+        binding.navDonate.setOnClickListener {
+            startActivity(Intent(this, AddDonationActivity::class.java))
+            overridePendingTransition(0, 0)
+        }
     }
 
     private fun goHome() {
