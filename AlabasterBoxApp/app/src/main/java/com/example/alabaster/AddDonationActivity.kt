@@ -187,15 +187,17 @@
 //    }
 //}
 
-
-//new code to blur out option text box if they dont choose money
+// new code to blur out option text box if they dont choose money
 package com.example.alabaster
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.alabaster.databinding.ActivityAddDonationBinding
@@ -214,6 +216,14 @@ class AddDonationActivity : AppCompatActivity() {
         binding = ActivityAddDonationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // === Back button → HomeActivity ===
+        binding.ivBack.setOnClickListener { goHome() }
+
+        // Also make the system back button go to HomeActivity
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() = goHome()
+        })
+
         // Spinner setup
         val types = listOf("Money", "Clothes", "Food", "Other")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, types)
@@ -223,7 +233,7 @@ class AddDonationActivity : AppCompatActivity() {
         binding.spinnerType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
-                view: android.view.View?,
+                view: View?,
                 position: Int,
                 id: Long
             ) {
@@ -232,15 +242,33 @@ class AddDonationActivity : AppCompatActivity() {
                     // Disable and grey out the amount field
                     binding.etAmount.isEnabled = false
                     binding.etAmount.setText("")
-                    binding.etAmount.setHint("Not applicable")
-                    binding.etAmount.setTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
-                    binding.etAmount.setHintTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
+                    binding.etAmount.setTextColor(
+                        ContextCompat.getColor(
+                            this@AddDonationActivity,
+                            android.R.color.darker_gray
+                        )
+                    )
+                    binding.etAmount.setHintTextColor(
+                        ContextCompat.getColor(
+                            this@AddDonationActivity,
+                            android.R.color.darker_gray
+                        )
+                    )
                 } else {
                     // Re-enable and restore normal style
                     binding.etAmount.isEnabled = true
-                    binding.etAmount.setHint("R0.00")
-                    binding.etAmount.setTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.black))
-                    binding.etAmount.setHintTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
+                    binding.etAmount.setTextColor(
+                        ContextCompat.getColor(
+                            this@AddDonationActivity,
+                            android.R.color.black
+                        )
+                    )
+                    binding.etAmount.setHintTextColor(
+                        ContextCompat.getColor(
+                            this@AddDonationActivity,
+                            android.R.color.darker_gray
+                        )
+                    )
                 }
             }
 
@@ -289,6 +317,17 @@ class AddDonationActivity : AppCompatActivity() {
         }
     }
 
+    private fun goHome() {
+        // If HomeActivity is already in the stack, this brings you back to it without duplicates
+        val intent = Intent(this, HomeActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        }
+        startActivity(intent)
+        // Optional fade transition
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish()
+    }
+
     private fun clearFields() {
         binding.etName.text?.clear()
         binding.etAmount.text?.clear()
@@ -297,4 +336,3 @@ class AddDonationActivity : AppCompatActivity() {
         binding.spinnerType.setSelection(0)
     }
 }
-

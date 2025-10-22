@@ -3,6 +3,7 @@ package com.example.alabaster
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +23,31 @@ class TestimonyActivity : AppCompatActivity() {
         binding = ActivityTestimonyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // ---- Nav wiring ----
+        // Back icon → HomeActivity
+        binding.back.setOnClickListener { goHome() }
+
+        // System back → HomeActivity (same behavior)
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() = goHome()
+        })
+
+        // Floating "+" → AddTestimonyActivity
+        binding.fabAdd.setOnClickListener {
+            startActivity(Intent(this, AddTestimonyActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
+
+        // Donate tab → AddDonationActivity
+        binding.navDonate.setOnClickListener {
+            startActivity(Intent(this, AddDonationActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
+
+        // Home tab → HomeActivity
+        binding.navHome.setOnClickListener { goHome() }
+        // ---- End nav wiring ----
+
         recyclerView = binding.testimonyRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
@@ -34,9 +60,20 @@ class TestimonyActivity : AppCompatActivity() {
 
         fetchApprovedTestimonies()
 
+        // Existing button in the “What is a testimony?” card
         binding.addTestimonyBtn.setOnClickListener {
             startActivity(Intent(this, AddTestimonyActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
+    }
+
+    private fun goHome() {
+        val intent = Intent(this, HomeActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        }
+        startActivity(intent)
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish()
     }
 
     private fun fetchApprovedTestimonies() {
@@ -64,4 +101,3 @@ class TestimonyActivity : AppCompatActivity() {
         })
     }
 }
-
