@@ -34,70 +34,171 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="18dp"
-        android:elevation="4dp" />
+        android:layout_marginTop="18dp" />
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/tvAddTitle"
+    <!-- Title block (matches donation vibe) -->
+    <LinearLayout
+        android:id="@+id/titleSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD YOUR TESTIMONY"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/comfortaa_regular"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/ivBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="6dp" />
+        android:layout_marginTop="6dp">
 
-    <!-- Scrollable Content -->
+        <TextView
+            android:id="@+id/tvAddTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD YOUR TESTIMONY"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/comfortaa_regular"
+            android:letterSpacing="0.08"
+            android:shadowColor="#26000000"
+            android:shadowDx="0"
+            android:shadowDy="3"
+            android:shadowRadius="4" />
+
+        <View
+            android:layout_width="64dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="#F29A2E"
+            android:alpha="0.95" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share your story — it inspires others."
+            android:textColor="#7A7A7A"
+            android:textSize="12.5sp"
+            android:fontFamily="@font/comfortaa_regular"
+            android:layout_marginTop="6dp" />
+    </LinearLayout>
+
+    <!-- Scrollable content -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/formScroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
+        android:clipToPadding="false"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:paddingBottom="24dp"
-        app:layout_constraintTop_toBottomOf="@id/tvAddTitle"
+        app:layout_constraintTop_toBottomOf="@id/titleSection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Outer wrapper (centers content) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <!-- Width limiter like other pages -->
-            <com.google.android.material.card.MaterialCardView
+            <!-- Chips row (cohesive with donation page) -->
+            <LinearLayout
+                android:id="@+id/chipsRow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardUseCompatPadding="true"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardElevation="0dp"
-                app:contentPadding="0dp"
-                app:cardPreventCornerOverlap="false"
-                app:cardCornerRadius="0dp"
-                app:strokeWidth="0dp">
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingTop="4dp"
+                android:paddingBottom="6dp">
 
-                <!-- Form stack: put layoutAnimation HERE -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AUTHENTIC"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+
+                <Space android:layout_width="8dp" android:layout_height="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HOPEFUL"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+
+                <Space android:layout_width="8dp" android:layout_height="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UPLIFTING"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+            </LinearLayout>
+
+            <!-- Elevated form card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/formCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:strokeColor="#12000000"
+                app:strokeWidth="1dp"
+                app:cardCornerRadius="22dp"
+                app:contentPadding="18dp">
+
                 <LinearLayout
                     android:id="@+id/formStack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:animateLayoutChanges="true"
                     android:layoutAnimation="@anim/layout_stagger_fade_in">
+
+                    <!-- Small section title inside card -->
+                    <TextView
+                        android:id="@+id/sectionChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Testimony Details"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="#F29A2E"
+                        android:fontFamily="@font/comfortaa_regular"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:background="#1AF29A2E"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="8dp" />
 
                     <!-- NAME AND SURNAME -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:hint="NAME AND SURNAME"
                         app:boxBackgroundMode="outline"
                         app:boxBackgroundColor="@android:color/transparent"
@@ -123,7 +224,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginTop="12dp"
                         android:hint="DATE"
                         app:boxBackgroundMode="outline"
                         app:boxBackgroundColor="@android:color/transparent"
@@ -132,8 +233,9 @@
                         app:boxCornerRadiusTopEnd="24dp"
                         app:boxCornerRadiusBottomStart="24dp"
                         app:boxCornerRadiusBottomEnd="24dp"
+                        app:endIconMode="custom"
                         app:endIconDrawable="@android:drawable/ic_menu_my_calendar"
-                        app:endIconMode="custom">
+                        app:endIconContentDescription="Pick date">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etDate"
@@ -153,7 +255,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginTop="12dp"
                         android:hint="TITLE"
                         app:boxBackgroundMode="outline"
                         app:boxBackgroundColor="@android:color/transparent"
@@ -175,12 +277,12 @@
                             android:fontFamily="@font/comfortaa_regular" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- IMAGE section -->
+                    <!-- IMAGE picker row -->
                     <TextView
                         android:id="@+id/tvImageLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginTop="14dp"
                         android:text="UPLOAD IMAGE (Optional)"
                         android:textColor="@android:color/black"
                         android:textSize="11sp"
@@ -191,20 +293,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:backgroundTint="@android:color/transparent"
                         app:strokeColor="#F29A2E"
                         app:strokeWidth="1dp"
-                        app:cardCornerRadius="24dp"
+                        app:cardCornerRadius="18dp"
                         app:cardElevation="0dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:paddingVertical="10dp"
+                            android:gravity="center_vertical"
                             android:paddingStart="12dp"
-                            android:paddingEnd="12dp">
+                            android:paddingEnd="12dp"
+                            android:paddingVertical="10dp">
 
                             <ImageView
                                 android:id="@+id/ivPreview"
@@ -217,20 +318,17 @@
                                 android:layout_width="10dp"
                                 android:layout_height="1dp" />
 
-                            <com.google.android.material.button.MaterialButton
+                            <Button
                                 android:id="@+id/btnSelectImage"
                                 android:layout_width="0dp"
                                 android:layout_height="40dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/black_outline_btn"
                                 android:text="Choose Image"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
                                 android:textSize="13sp"
+                                android:textColor="@color/black"
                                 android:fontFamily="@font/comfortaa_regular"
-                                app:cornerRadius="12dp"
-                                app:iconGravity="textStart"
-                                app:iconPadding="6dp" />
+                                android:background="@drawable/black_outline_btn" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -238,7 +336,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginTop="14dp"
                         android:hint="YOUR TESTIMONY"
                         app:boxBackgroundMode="outline"
                         app:boxBackgroundColor="@android:color/transparent"
@@ -254,13 +352,13 @@
                             android:layout_height="wrap_content"
                             android:minLines="5"
                             android:gravity="top|start"
+                            android:inputType="textMultiLine"
                             android:paddingHorizontal="16dp"
                             android:paddingVertical="12dp"
                             android:textSize="13sp"
                             android:textColor="@android:color/black"
                             android:textColorHint="#9A9A9A"
-                            android:fontFamily="@font/comfortaa_regular"
-                            android:inputType="textMultiLine" />
+                            android:fontFamily="@font/comfortaa_regular" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Submit -->
@@ -268,14 +366,14 @@
                         android:id="@+id/btnAdd"
                         android:layout_width="match_parent"
                         android:layout_height="54dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="22dp"
                         android:text="SUBMIT"
                         android:textAllCaps="false"
+                        android:textStyle="bold"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
-                        android:textStyle="bold"
                         android:fontFamily="@font/comfortaa_regular"
-                        app:cornerRadius="20dp"
+                        app:cornerRadius="50dp"
                         android:backgroundTint="#000000"
                         app:rippleColor="#1AFFFFFF" />
 
@@ -286,5 +384,4 @@
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

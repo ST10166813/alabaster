@@ -48,7 +48,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="6dp">
 
-        <!-- Main Title -->
         <TextView
             android:id="@+id/tvDonateTitle"
             android:layout_width="wrap_content"
@@ -66,7 +65,6 @@
             android:elevation="3dp"
             android:layout_marginBottom="2dp" />
 
-        <!-- Accent underline bar -->
         <View
             android:layout_width="56dp"
             android:layout_height="3dp"
@@ -76,7 +74,6 @@
             android:alpha="0.95"
             android:layout_marginBottom="6dp" />
 
-        <!-- Subtitle -->
         <TextView
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"
@@ -104,167 +101,273 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Outer container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal">
-            <!-- NAME -->
-            <com.google.android.material.textfield.TextInputLayout
+
+            <!-- Trust chips row -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:hint="FULL NAME"
-                app:hintEnabled="true"
-                app:hintAnimationEnabled="true"
-                app:boxBackgroundMode="outline"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="#F29A2E"
-                app:boxCornerRadiusTopStart="24dp"
-                app:boxCornerRadiusTopEnd="24dp"
-                app:boxCornerRadiusBottomStart="24dp"
-                app:boxCornerRadiusBottomEnd="24dp">
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:paddingBottom="2dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etName"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp"
-                    android:textSize="13sp"
-                    android:textColorHint="#9A9A9A"
-                    android:textColor="@android:color/black"
+                    android:text="SECURE"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:background="#1AF29A2E"
                     android:fontFamily="@font/comfortaa_regular" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- DONATION TYPE -->
-            <TextView
-                android:id="@+id/tvTypeLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DONATION TYPE"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/comfortaa_regular"
-                android:textColor="@android:color/black"
-                android:layout_marginTop="18dp" />
+                <Space android:layout_width="8dp" android:layout_height="1dp"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FAST"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+
+                <Space android:layout_width="8dp" android:layout_height="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRUSTED"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+            </LinearLayout>
+
+            <!-- Elevated form card -->
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@android:color/transparent"
-                app:cardCornerRadius="24dp"
-                app:strokeColor="#F29A2E"
-                app:strokeWidth="1dp">
-
-                <Spinner
-                    android:id="@+id/spinnerType"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="12dp"
-                    android:spinnerMode="dropdown" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- AMOUNT -->
-            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/formCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:hint="DONATION AMOUNT (IF APPLICABLE)"
-                app:boxBackgroundMode="outline"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="#F29A2E"
-                app:boxCornerRadiusTopStart="24dp"
-                app:boxCornerRadiusTopEnd="24dp"
-                app:boxCornerRadiusBottomStart="24dp"
-                app:boxCornerRadiusBottomEnd="24dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="12dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:strokeColor="#12000000"
+                app:strokeWidth="1dp"
+                app:cardCornerRadius="22dp"
+                app:contentPadding="18dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAmount"
+                <LinearLayout
+                    android:id="@+id/formStack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp"
-                    android:textSize="13sp"
-                    android:textColorHint="#9A9A9A"
-                    android:textColor="@android:color/black"
-                    android:fontFamily="@font/comfortaa_regular" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:orientation="vertical"
+                    android:layoutAnimation="@anim/layout_stagger_fade_in"
+                    android:animateLayoutChanges="true">
 
-            <!-- BANKING DETAILS (Hidden by default) -->
-            <TextView
-                android:id="@+id/tvBankDetails"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:padding="16dp"
-                android:background="@drawable/border_background"
-                android:text="Banking Details:\n\nAccount Name: The Alabaster Box Anoiting Ministries \nBank: First National Bank (FNB)\nAccount Number: 62787787880\nBranch Code: 250655\nReference: Your Name - Donation"
-                android:textColor="@android:color/black"
-                android:textSize="13sp"
-                android:fontFamily="@font/comfortaa_regular"
-                android:visibility="gone" />
+                    <!-- Section header -->
+                    <TextView
+                        android:id="@+id/sectionChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Donation Details"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/comfortaa_regular"
+                        android:textColor="#F29A2E"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:background="#1AF29A2E"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="8dp" />
 
-            <!-- CONTACT DETAILS -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:hint="CONTACT DETAILS"
-                app:boxBackgroundMode="outline"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="#F29A2E"
-                app:boxCornerRadiusTopStart="24dp"
-                app:boxCornerRadiusTopEnd="24dp"
-                app:boxCornerRadiusBottomStart="24dp"
-                app:boxCornerRadiusBottomEnd="24dp">
+                    <!-- NAME -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:hint="FULL NAME"
+                        app:helperText="Please enter your full legal name"
+                        app:helperTextTextColor="#8A8A8A"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="60"
+                        app:boxBackgroundMode="outline"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        app:boxStrokeColor="#F29A2E"
+                        app:boxCornerRadiusTopStart="24dp"
+                        app:boxCornerRadiusTopEnd="24dp"
+                        app:boxCornerRadiusBottomStart="24dp"
+                        app:boxCornerRadiusBottomEnd="24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp"
-                    android:textSize="13sp"
-                    android:textColorHint="#9A9A9A"
-                    android:textColor="@android:color/black"
-                    android:fontFamily="@font/comfortaa_regular" />
-            </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="12dp"
+                            android:textSize="13sp"
+                            android:textColorHint="#9A9A9A"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="@font/comfortaa_regular" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- DATE -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:hint="DATE"
-                app:boxBackgroundMode="outline"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="#F29A2E"
-                app:boxCornerRadiusTopStart="24dp"
-                app:boxCornerRadiusTopEnd="24dp"
-                app:boxCornerRadiusBottomStart="24dp"
-                app:boxCornerRadiusBottomEnd="24dp"
-                app:endIconMode="custom"
-                app:endIconDrawable="@android:drawable/ic_menu_my_calendar"
-                app:endIconContentDescription="Pick date">
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="6dp"
+                        android:background="#11000000"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:clickable="true"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp"
-                    android:textSize="13sp"
-                    android:textColorHint="#9A9A9A"
-                    android:textColor="@android:color/black"
-                    android:fontFamily="@font/comfortaa_regular" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <!-- DONATION TYPE -->
+                    <TextView
+                        android:id="@+id/tvTypeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DONATION TYPE"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/comfortaa_regular"
+                        android:textColor="@android:color/black"
+                        android:layout_marginTop="6dp" />
 
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="24dp"
+                        app:strokeWidth="1dp"
+                        app:cardElevation="2dp">
+
+                        <Spinner
+                            android:id="@+id/spinnerType"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingHorizontal="12dp"
+                            android:spinnerMode="dropdown" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- AMOUNT -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="DONATION AMOUNT"
+                        app:helperText="Only required for money donations"
+                        app:helperTextTextColor="#8A8A8A"
+                        app:boxBackgroundMode="outline"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        app:boxStrokeColor="#F29A2E"
+                        app:boxCornerRadiusTopStart="24dp"
+                        app:boxCornerRadiusTopEnd="24dp"
+                        app:boxCornerRadiusBottomStart="24dp"
+                        app:boxCornerRadiusBottomEnd="24dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="12dp"
+                            android:textSize="13sp"
+                            android:textColorHint="#9A9A9A"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="@font/comfortaa_regular" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- BANKING DETAILS (Hidden by default) -->
+                    <TextView
+                        android:id="@+id/tvBankDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:padding="16dp"
+                        android:background="@drawable/border_background"
+                        android:text="Banking Details:\n\nAccount Name: The Alabaster Box Anoiting Ministries \nBank: First National Bank (FNB)\nAccount Number: 62787787880\nBranch Code: 250655\nReference: Your Name - Donation"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/comfortaa_regular"
+                        android:visibility="gone" />
+
+                    <!-- CONTACT DETAILS -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="CONTACT DETAILS"
+                        app:helperText="Phone, email, or preferred contact method"
+                        app:helperTextTextColor="#8A8A8A"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="80"
+                        app:boxBackgroundMode="outline"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        app:boxStrokeColor="#F29A2E"
+                        app:boxCornerRadiusTopStart="24dp"
+                        app:boxCornerRadiusTopEnd="24dp"
+                        app:boxCornerRadiusBottomStart="24dp"
+                        app:boxCornerRadiusBottomEnd="24dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="12dp"
+                            android:textSize="13sp"
+                            android:textColorHint="#9A9A9A"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="@font/comfortaa_regular" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- DATE -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="DATE"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@android:drawable/ic_menu_my_calendar"
+                        app:boxBackgroundMode="outline"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        app:boxStrokeColor="#F29A2E"
+                        app:boxCornerRadiusTopStart="24dp"
+                        app:boxCornerRadiusTopEnd="24dp"
+                        app:boxCornerRadiusBottomStart="24dp"
+                        app:boxCornerRadiusBottomEnd="24dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:clickable="true"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="12dp"
+                            android:textSize="13sp"
+                            android:textColorHint="#9A9A9A"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="@font/comfortaa_regular" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Submit Button -->
                     <LinearLayout
@@ -287,11 +390,23 @@
                             android:fontFamily="@font/comfortaa_regular"
                             android:backgroundTint="#000000"
                             app:cornerRadius="50dp"
+                            app:icon="@android:drawable/ic_menu_send"
                             app:iconPadding="8dp"
                             app:iconGravity="textStart"
                             android:layout_marginBottom="10dp"
                             app:rippleColor="#1AFFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your generosity fuels real impact."
+                            android:textColor="#7A7A7A"
+                            android:textSize="11.5sp"
+                            android:fontFamily="@font/comfortaa_regular"
+                            android:layout_marginTop="2dp"/>
                     </LinearLayout>
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

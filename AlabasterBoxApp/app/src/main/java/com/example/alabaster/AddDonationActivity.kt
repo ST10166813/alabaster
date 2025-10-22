@@ -225,8 +225,10 @@ class AddDonationActivity : AppCompatActivity() {
         })
 
         // Spinner setup
-        val types = listOf("Money", "Clothes", "Food", "Other")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, types)
+        val types = listOf("Select Donation Type","Money", "Clothes", "Food", "Other")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, types).apply {
+            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
         binding.spinnerType.adapter = adapter
 
         // Handle donation type changes
@@ -240,59 +242,36 @@ class AddDonationActivity : AppCompatActivity() {
                 val selectedType = types[position]
 
                 if (selectedType == "Money") {
-                    // Enable amount field
+                    // Enable amount field, normal style
                     binding.etAmount.isEnabled = true
-                    binding.etAmount.setHint("R0.00")
-                    binding.etAmount.setTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.black))
-                    binding.etAmount.setHintTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
+                    binding.etAmount.setTextColor(
+                        ContextCompat.getColor(this@AddDonationActivity, android.R.color.black)
+                    )
+                    binding.etAmount.setHintTextColor(
+                        ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray)
+                    )
 
-                    // Show banking details
-                    binding.tvBankDetails.visibility = android.view.View.VISIBLE
+                    // Show banking details (make sure you have a TextView with this id in the layout)
+                    binding.tvBankDetails.visibility = View.VISIBLE
 
                 } else {
-                    // Disable amount field
+                    // Disable amount field, clear and grey out
                     binding.etAmount.isEnabled = false
                     binding.etAmount.setText("")
-
                     binding.etAmount.setTextColor(
-                        ContextCompat.getColor(
-                            this@AddDonationActivity,
-                            android.R.color.darker_gray
-                        )
+                        ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray)
                     )
                     binding.etAmount.setHintTextColor(
-                        ContextCompat.getColor(
-                            this@AddDonationActivity,
-                            android.R.color.darker_gray
-                        )
+                        ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray)
                     )
-                } else {
-                    // Re-enable and restore normal style
-                    binding.etAmount.isEnabled = true
-                    binding.etAmount.setTextColor(
-                        ContextCompat.getColor(
-                            this@AddDonationActivity,
-                            android.R.color.black
-                        )
-                    )
-                    binding.etAmount.setHintTextColor(
-                        ContextCompat.getColor(
-                            this@AddDonationActivity,
-                            android.R.color.darker_gray
-                        )
-                    )
-                    binding.etAmount.setHint("Not applicable")
-                    binding.etAmount.setTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
-                    binding.etAmount.setHintTextColor(ContextCompat.getColor(this@AddDonationActivity, android.R.color.darker_gray))
 
                     // Hide banking details
-                    binding.tvBankDetails.visibility = android.view.View.GONE
+                    binding.tvBankDetails.visibility = View.GONE
                 }
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
+            override fun onNothingSelected(parent: AdapterView<*>?) { /* no-op */ }
         }
-
 
         // Date picker
         binding.etDate.setOnClickListener {
@@ -330,9 +309,9 @@ class AddDonationActivity : AppCompatActivity() {
                     Toast.makeText(this, "Donation added successfully!", Toast.LENGTH_SHORT).show()
                     clearFields()
 
+                    // If it's not Money, go to drop-off map
                     if (type != "Money") {
-                        val intent = Intent(this, DropOffMapActivity::class.java)
-                        startActivity(intent)
+                        startActivity(Intent(this, DropOffMapActivity::class.java))
                     }
                 }
                 .addOnFailureListener {
@@ -342,12 +321,10 @@ class AddDonationActivity : AppCompatActivity() {
     }
 
     private fun goHome() {
-        // If HomeActivity is already in the stack, this brings you back to it without duplicates
         val intent = Intent(this, HomeActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
         }
         startActivity(intent)
-        // Optional fade transition
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         finish()
     }
