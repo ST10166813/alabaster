@@ -53,7 +53,7 @@
             android:id="@+id/tvHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Volunteer with Us"
+            android:text="VOLUNTEER WITH US"
             android:textColor="@android:color/black"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -377,6 +377,9 @@
                         android:textSize="14sp"
                         android:fontFamily="@font/comfortaa_regular"
                         app:cornerRadius="50dp"
+                        app:icon="@android:drawable/ic_menu_send"
+                        app:iconPadding="8dp"
+                        app:iconGravity="textStart"
                         app:backgroundTint="@color/black"
                         app:rippleColor="#1AFFFFFF" />
 

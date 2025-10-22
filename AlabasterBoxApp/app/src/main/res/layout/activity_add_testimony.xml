@@ -293,7 +293,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        app:strokeColor="#F29A2E"
                         app:strokeWidth="1dp"
                         app:cardCornerRadius="18dp"
                         app:cardElevation="0dp">
@@ -375,6 +374,9 @@
                         android:fontFamily="@font/comfortaa_regular"
                         app:cornerRadius="50dp"
                         android:backgroundTint="#000000"
+                        app:icon="@android:drawable/ic_menu_send"
+                        app:iconPadding="8dp"
+                        app:iconGravity="textStart"
                         app:rippleColor="#1AFFFFFF" />
 
                     <Space

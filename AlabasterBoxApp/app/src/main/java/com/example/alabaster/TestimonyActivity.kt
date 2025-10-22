@@ -59,12 +59,12 @@ class TestimonyActivity : AppCompatActivity() {
         dbRef = FirebaseDatabase.getInstance().getReference("testimonies")
 
         fetchApprovedTestimonies()
-
-        // Existing button in the “What is a testimony?” card
-        binding.addTestimonyBtn.setOnClickListener {
-            startActivity(Intent(this, AddTestimonyActivity::class.java))
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-        }
+//
+//        // Existing button in the “What is a testimony?” card
+//        binding.addTestimonyBtn.setOnClickListener {
+//            startActivity(Intent(this, AddTestimonyActivity::class.java))
+//            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+//        }
 
         // Bottom navigation
         binding.navHome.setOnClickListener {

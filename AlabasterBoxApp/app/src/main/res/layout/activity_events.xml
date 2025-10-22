@@ -6,174 +6,326 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF7F0"
     tools:context=".EventsActivity">
 
-    <!-- Full‑screen bottom image -->
-
-    <!-- LIVE Indicator -->
+    <!-- Background -->
     <ImageView
         android:id="@+id/backgroundImage"
-        android:layout_width="412dp"
-        android:layout_height="336dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:scaleType="centerCrop"
         android:src="@drawable/background_flipped"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/eventRecyclerView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Back Button -->
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="6dp"
+        android:src="@drawable/back_icon"
+        android:contentDescription="Back"
+        android:background="@android:color/transparent"
+        app:tint="@android:color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Title section -->
     <LinearLayout
-        android:id="@+id/liveLayout"
+        android:id="@+id/titleSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/headphones" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp">
 
         <TextView
+            android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LIVE"
-            android:textColor="#FF0000"
+            android:text="UPCOMING EVENTS"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginStart="4dp" />
+            android:fontFamily="@font/comfortaa_regular"
+            android:letterSpacing="0.08"
+            android:shadowColor="#26000000"
+            android:shadowDx="0"
+            android:shadowDy="3"
+            android:shadowRadius="4"
+            android:elevation="3dp"
+            android:layout_marginBottom="2dp"/>
+
+        <View
+            android:layout_width="56dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="#F29A2E"
+            android:layout_gravity="center_horizontal"
+            android:alpha="0.95"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See what’s coming up!"
+            android:textColor="#7A7A7A"
+            android:textSize="12.5sp"
+            android:fontFamily="@font/comfortaa_regular"
+            android:letterSpacing="0.02"/>
     </LinearLayout>
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UPCOMING EVENTS"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/liveLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Events List -->
-
-    <!-- Bottom Container: your button bar over the bottom image -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventRecyclerView"
-        android:layout_width="411dp"
-        android:layout_height="499dp"
-        android:layout_marginTop="16dp"
-        android:clipToPadding="false"
-        android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@id/bottomContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <FrameLayout
-        android:id="@+id/bottomContainer"
+    <!-- About Events Card (with chips added) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/aboutEventsCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="12dp"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="2dp"
+        app:layout_constraintTop_toBottomOf="@id/titleSection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Your three‑button bar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_marginTop="12dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <!-- ADD CATEGORY -->
-            <LinearLayout
-                android:id="@+id/eventsLayout"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/aboutEventsLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true">
+                android:text="WHAT ARE EVENTS?"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/comfortaa_regular"/>
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/events"
-                    android:padding="4dp" />
+            <View
+                android:layout_width="64dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="8dp"
+                android:background="#F29A2E"/>
+
+            <TextView
+                android:id="@+id/aboutEventsDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stay updated with gatherings, outreach, and special services. Join us to connect, grow, and serve together."
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/comfortaa_regular"/>
+
+            <!-- Chips Row inside card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="EVENTS"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:fontFamily="monospace" />
-            </LinearLayout>
+                    android:text="COMMUNITY"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10.5sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
 
-            <!-- ADD EXPENSES -->
+                <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IMPACT"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10.5sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+
+                <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRUSTED"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10.5sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- VIEW ALL -->
+    <TextView
+        android:id="@+id/viewAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIEW ALL"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:fontFamily="@font/comfortaa_regular"
+        app:layout_constraintTop_toBottomOf="@id/aboutEventsCard"
+        app:layout_constraintEnd_toEndOf="@id/aboutEventsCard"
+        android:layout_marginTop="12dp"/>
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/viewAll"
+        app:layout_constraintBottom_toTopOf="@+id/navBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Bottom Nav Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/navBar"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_margin="12dp"
+        android:backgroundTint="@android:color/white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#11000000"
+        app:strokeWidth="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingHorizontal="28dp"
+            android:weightSum="3">
+
+            <!-- HOME -->
             <LinearLayout
-                android:id="@+id/TestLayout"
+                android:id="@+id/eventsLayout"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/test"
-                    android:padding="4dp" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/home_icon_black"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HOME"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/comfortaa_regular"/>
+            </LinearLayout>
+
+            <!-- TESTIMONIES -->
+            <LinearLayout
+                android:id="@+id/testimonyLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TESTIMONIES"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:fontFamily="monospace" />
+                    android:textSize="11sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="37dp"
+                    android:fontFamily="@font/comfortaa_regular"/>
             </LinearLayout>
 
-            <!-- REPORT -->
+            <!-- DONATE -->
             <LinearLayout
                 android:id="@+id/DonateLayout"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/cost"
-                    android:padding="4dp" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/donation_icon_black"
+                    android:layout_marginBottom="4dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DONATE"
+                    android:textSize="11sp"
                     android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:fontFamily="monospace" />
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/comfortaa_regular"/>
             </LinearLayout>
         </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-    </FrameLayout>
-
+    <!-- Floating Testimony Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="68dp"
+        android:layout_height="58dp"
+        android:contentDescription="Add Testimony"
+        app:srcCompat="@drawable/testimony_icon"
+        app:tint="@android:color/white"
+        app:useCompatPadding="true"
+        android:elevation="10dp"
+        app:layout_constraintStart_toStartOf="@id/navBar"
+        app:layout_constraintEnd_toEndOf="@id/navBar"
+        app:layout_constraintBottom_toTopOf="@id/navBar"
+        android:translationY="50dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

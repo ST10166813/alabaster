@@ -20,7 +20,7 @@ class EventAdapter(private val events: List<Event>) :
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val e = events[position]
         holder.binding.tvTitle.text = e.title
-        holder.binding.tvDate.text = "📅 ${e.date}"
+        holder.binding.tvDate.text = "${e.date}"
         holder.binding.tvLocation.text = "📍 ${e.location}"
         holder.binding.tvDescription.text = e.description
     }
