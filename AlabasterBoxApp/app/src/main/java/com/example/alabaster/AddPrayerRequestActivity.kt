@@ -1,9 +1,8 @@
 package com.example.alabaster
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -14,6 +13,11 @@ class AddPrayerRequestActivity : AppCompatActivity() {
     private lateinit var etName: EditText
     private lateinit var etRequest: EditText
     private lateinit var btnSubmit: Button
+    private lateinit var ivBack: ImageView
+    private lateinit var eventsLayout: LinearLayout
+    private lateinit var fabAdd: com.google.android.material.floatingactionbutton.FloatingActionButton
+    private lateinit var donateLayout: LinearLayout
+
     private lateinit var dbRef: DatabaseReference
     private lateinit var auth: FirebaseAuth
 
@@ -21,15 +25,45 @@ class AddPrayerRequestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_prayer_request)
 
-        etName = findViewById(R.id.etName)
-        etRequest = findViewById(R.id.etRequest)
-        btnSubmit = findViewById(R.id.btnSubmit)
-
+        // Initialize Firebase
         dbRef = FirebaseDatabase.getInstance().getReference("prayer_requests")
         auth = FirebaseAuth.getInstance()
 
+        // Bind views
+        etName = findViewById(R.id.etName)
+        etRequest = findViewById(R.id.etRequest)
+        btnSubmit = findViewById(R.id.btnSubmit)
+        ivBack = findViewById(R.id.ivBack)
+        eventsLayout = findViewById(R.id.eventsLayout)
+        fabAdd = findViewById(R.id.fabAdd)
+        donateLayout = findViewById(R.id.DonateLayout)
+
+        // Submit button logic
         btnSubmit.setOnClickListener {
             savePrayerRequest()
+        }
+
+        // Navigation button logic
+        ivBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+        eventsLayout.setOnClickListener {
+            val intent = Intent(this, EventsActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
+
+        fabAdd.setOnClickListener {
+            val intent = Intent(this, TestimonyActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+        }
+
+        donateLayout.setOnClickListener {
+            val intent = Intent(this, AddDonationActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
     }
 

@@ -36,20 +36,55 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp" />
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/titleText"
+    <!-- Title section (styled like Events/Donations) -->
+    <LinearLayout
+        android:id="@+id/titleSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TESTIMONIES"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:fontFamily="@font/comfortaa_regular"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="6dp">
+
+        <!-- Keep same id for compatibility -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TESTIMONIES"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/comfortaa_regular"
+            android:letterSpacing="0.08"
+            android:shadowColor="#26000000"
+            android:shadowDx="0"
+            android:shadowDy="3"
+            android:shadowRadius="4"
+            android:elevation="3dp"
+            android:layout_marginBottom="2dp"/>
+
+        <View
+            android:layout_width="56dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="#F29A2E"
+            android:layout_gravity="center_horizontal"
+            android:alpha="0.95"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stories that encourage faith!"
+            android:textColor="#7A7A7A"
+            android:textSize="12.5sp"
+            android:fontFamily="@font/comfortaa_regular"
+            android:letterSpacing="0.02"/>
+    </LinearLayout>
 
     <!-- What is a Testimony -->
     <androidx.cardview.widget.CardView
@@ -61,7 +96,7 @@
         android:layout_marginTop="12dp"
         app:cardCornerRadius="18dp"
         app:cardElevation="2dp"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintTop_toBottomOf="@id/titleSection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -81,27 +116,73 @@
                 android:textColor="@android:color/black"
                 android:fontFamily="@font/comfortaa_regular" />
 
+            <View
+                android:layout_width="64dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="8dp"
+                android:background="#F29A2E" />
+
             <TextView
                 android:id="@+id/whatIsDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="A testimony is a personal story of transformation — a heartfelt reflection of how faith, grace, and perseverance have shaped your life. It’s a moment to inspire others by sharing the power of hope, healing, and renewal."
-                android:textSize="12.5sp"
+                android:textSize="13sp"
                 android:textColor="#666666"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/comfortaa_regular" />
 
-            <Button
-                android:id="@+id/addTestimonyBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="12dp"
-                android:text="ADD YOUR TESTIMONY"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                android:fontFamily="@font/comfortaa_regular"
-                android:textColor="@color/white"
-                android:layout_gravity="center_horizontal" />
+            <!-- Friendly chips row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="COMMUNITY"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10.5sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+
+                <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IMPACT"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10.5sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+
+                <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRUSTED"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="10.5sp"
+                    android:textColor="#F29A2E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:background="#1AF29A2E"
+                    android:fontFamily="@font/comfortaa_regular" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -130,7 +211,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Bottom Rounded Nav Bar -->
+    <!-- Bottom Rounded Nav Bar (unchanged) -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/navBar"
         android:layout_width="0dp"
@@ -168,8 +249,7 @@
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:src="@drawable/home_icon"
-                    />
+                    android:src="@drawable/home_icon_black" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -177,12 +257,11 @@
                     android:text="HOME"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    android:textColor="#F29A2E"
                     android:fontFamily="@font/comfortaa_regular"
                     android:layout_marginTop="4dp"/>
             </LinearLayout>
 
-            <!-- Empty space for FAB overlap -->
+            <!-- Spacer for FAB overlap -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -203,7 +282,7 @@
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:src="@drawable/donate_icon" />
+                    android:src="@drawable/donation_icon_black" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -211,20 +290,18 @@
                     android:text="DONATE"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    android:textColor="#F29A2E"
                     android:fontFamily="@font/comfortaa_regular"
                     android:layout_marginTop="4dp"/>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Floating Add Button (Overlapping Upwards) -->
+    <!-- Floating Add Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
         android:layout_width="68dp"
         android:layout_height="58dp"
         android:contentDescription="Add Testimony"
-        app:backgroundTint="#F29A2E"
         app:srcCompat="@drawable/add_icon"
         app:tint="@android:color/white"
         app:useCompatPadding="true"
@@ -233,5 +310,20 @@
         app:layout_constraintEnd_toEndOf="@id/navBar"
         app:layout_constraintBottom_toTopOf="@id/navBar"
         android:translationY="50dp" />
+    <!-- Centered Label below FAB -->
+    <TextView
+        android:id="@+id/fabLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD TESTIMONY"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/comfortaa_regular"
+        app:layout_constraintTop_toBottomOf="@id/fabAdd"
+        app:layout_constraintStart_toStartOf="@id/fabAdd"
+        app:layout_constraintEnd_toEndOf="@id/fabAdd"
+        android:layout_marginTop="46dp"
+        android:elevation="12dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
