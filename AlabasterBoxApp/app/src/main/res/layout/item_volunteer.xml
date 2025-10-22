@@ -7,29 +7,41 @@
     android:padding="12dp"
     android:layout_margin="8dp">
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvEmail"
+    <TextView android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
 
-    <TextView
-        android:id="@+id/tvPhone"
+    <TextView android:id="@+id/tvEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        android:textColor="@color/black"
+        android:textSize="14sp"/>
 
-    <TextView
-        android:id="@+id/tvInterest"
+    <TextView android:id="@+id/tvPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp" />
+        android:textColor="@color/black"
+        android:textSize="14sp"/>
+
+    <TextView android:id="@+id/tvInterest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"/>
+
+    <TextView android:id="@+id/tvAvailability"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"/>
+
+    <TextView android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"/>
 </LinearLayout>

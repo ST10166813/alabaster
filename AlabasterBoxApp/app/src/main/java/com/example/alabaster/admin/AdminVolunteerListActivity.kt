@@ -24,7 +24,7 @@ class AdminVolunteerListActivity : AppCompatActivity() {
         binding = ActivityAdminVolunteerListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        database = FirebaseDatabase.getInstance().getReference("Volunteers")
+        database = FirebaseDatabase.getInstance().getReference("volunteers")
         volunteerList = ArrayList()
         adapter = VolunteerAdapter(volunteerList)
         binding.recyclerViewVolunteers.layoutManager = LinearLayoutManager(this)

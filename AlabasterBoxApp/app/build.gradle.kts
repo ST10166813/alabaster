@@ -9,7 +9,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.alabaster"
+        applicationId = "com.example.alabasterbox"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

@@ -50,8 +50,14 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.PrayerRequestsBtn.setOnClickListener {
+            startActivity(Intent(this, AddPrayerRequestActivity::class.java))
+        }
+
+        binding.viewEventsBtn.setOnClickListener {
             startActivity(Intent(this, EventsActivity::class.java))
         }
+
+
 
     }
 

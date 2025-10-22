@@ -22,7 +22,9 @@ class VolunteerAdapter(private val volunteers: List<Volunteer>) :
         holder.binding.tvName.text = "Name: ${v.name}"
         holder.binding.tvEmail.text = "Email: ${v.email}"
         holder.binding.tvPhone.text = "Phone: ${v.phone}"
-        holder.binding.tvInterest.text = "Interest: ${v.interest}"
+        holder.binding.tvInterest.text = "Interest: ${v.areaOfInterest}"
+        holder.binding.tvAvailability.text = "Availability: ${v.availability}"
+        holder.binding.tvMessage.text = "Message: ${v.message}"
     }
 
     override fun getItemCount(): Int = volunteers.size
