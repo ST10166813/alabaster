@@ -156,4 +156,9 @@
     <color name="yellow">#FFFF00</color>
     <color name="Yellow">#FFFF00</color>
     <color name="YellowGreen">#9ACD32</color>
+    <!-- Brand greens -->
+    <color name="brand_green">#2E7D32</color>
+    <color name="brand_green_dark">#1B5E20</color>
+    <!-- 30% alpha ripple (hex with alpha prefix 4D = ~30%) -->
+    <color name="brand_green_30">#4D2E7D32</color>
 </resources>

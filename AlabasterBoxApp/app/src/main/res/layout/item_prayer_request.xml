@@ -1,55 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/border_background"
-    android:layout_marginHorizontal="12dp"
+    android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
-    android:elevation="2dp">
+    app:cardUseCompatPadding="true"
+    app:cardElevation="6dp"
+    app:cardCornerRadius="20dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#12000000"
+    app:cardBackgroundColor="@android:color/white">
 
-    <!-- Name of person who submitted the request -->
-    <TextView
-        android:id="@+id/tvName"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:text="From: Name"
-        android:layout_marginBottom="4dp"/>
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <!-- Email of the person -->
-    <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="@color/black"
-        android:text="Email: user@example.com"
-        android:layout_marginBottom="6dp"/>
+        <!-- Sender Name -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="From: Name"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/comfortaa_regular"
+            android:letterSpacing="0.02"
+            android:layout_marginBottom="4dp"/>
 
-    <!-- Prayer request text -->
-    <TextView
-        android:id="@+id/tvRequest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        android:text="Prayer request text goes here..."
-        android:layout_marginBottom="8dp"
-        android:lineSpacingExtra="3dp"/>
+        <!-- Email -->
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email: user@example.com"
+            android:textSize="14sp"
+            android:textColor="#7A7A7A"
+            android:fontFamily="@font/comfortaa_regular"
+            android:layout_marginBottom="6dp"/>
 
-    <!-- Status (e.g., Pending, Prayed Over) -->
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textStyle="italic"
-        android:textColor="@color/black"
-        android:text="Status: Pending Prayer" />
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#11000000"
+            android:layout_marginBottom="6dp"/>
 
-</LinearLayout>
+        <!-- Request Content -->
+        <TextView
+            android:id="@+id/tvRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Prayer request text goes here..."
+            android:textSize="15sp"
+            android:lineSpacingExtra="3dp"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/comfortaa_regular"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Status Chip -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status: Pending Prayer"
+            android:textSize="12.5sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:fontFamily="@font/comfortaa_regular"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:background="#1A2E7D32"
+            android:layout_gravity="start"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"/>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

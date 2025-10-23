@@ -44,7 +44,7 @@ class DropOffMapActivity : AppCompatActivity(), OnMapReadyCallback {
             supportFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        binding.btnBack.setOnClickListener { finish() }
+       // binding.btnBack.setOnClickListener { finish() }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

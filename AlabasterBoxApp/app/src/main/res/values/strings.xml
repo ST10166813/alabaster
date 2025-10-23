@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Alabaster</string>
     <string name="default_web_client_id">1014314025942-53mbr8vnco1k13fl5bc2oth9eaclmjc5.apps.googleusercontent.com</string>
+    <string name="thank_you_animation">Thank you animation</string>
+
 
 </resources>

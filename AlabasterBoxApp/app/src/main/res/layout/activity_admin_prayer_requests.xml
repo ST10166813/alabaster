@@ -1,44 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:padding="16dp"
+    android:background="#FFF7F0"
     tools:context=".Admin.AdminPrayerRequestsActivity">
 
-    <!-- Header / Title -->
-    <TextView
-        android:id="@+id/tvHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Prayer Requests"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="12dp" />
+    <!-- Soft admin background -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/admin_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Refresh Button -->
-    <Button
+    <!-- Back -->
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:padding="8dp"
+        android:src="@drawable/back_icon"
+        android:contentDescription="Back"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@android:color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp" />
+
+    <!-- Header section (matches Admin Events style) -->
+    <LinearLayout
+        android:id="@+id/titleSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ivBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp"
+        android:paddingHorizontal="16dp">
+
+        <!-- Title (keeps your original ID tvHeader) -->
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRAYER REQUESTS"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/comfortaa_regular"
+            android:letterSpacing="0.08"
+            android:shadowColor="#26000000"
+            android:shadowDx="0"
+            android:shadowDy="3"
+            android:shadowRadius="4"
+            android:elevation="3dp"
+            android:layout_marginBottom="2dp" />
+
+        <!-- Green divider -->
+        <View
+            android:layout_width="56dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="#2E7D32"
+            android:alpha="0.95"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Review and respond to incoming requests"
+            android:textColor="#7A7A7A"
+            android:textSize="12.5sp"
+            android:fontFamily="@font/comfortaa_regular"
+            android:layout_marginTop="2dp"
+            android:letterSpacing="0.02" />
+    </LinearLayout>
+
+    <!-- Refresh (outlined green, aligned to end under header) -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRefresh"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/black"
+        android:layout_height="40dp"
         android:text="Refresh"
-        android:textAllCaps="true"
-        android:textColor="@android:color/white" />
+        android:textAllCaps="false"
+        android:fontFamily="@font/comfortaa_regular"
+        android:textColor="#2E7D32"
+        app:strokeWidth="1dp"
+        app:strokeColor="#2E7D32"
+        app:cornerRadius="24dp"
+        android:backgroundTint="@android:color/transparent"
+        app:rippleColor="#1A2E7D32"
+        app:layout_constraintTop_toBottomOf="@id/titleSection"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp" />
 
-    <!-- RecyclerView for listing prayer requests -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/prayerRequestsRecyclerView"
-        android:layout_width="match_parent"
+    <!-- List container -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContainer"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scrollbars="vertical"
-        tools:listitem="@layout/item_prayer_request" />
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/btnRefresh"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-</LinearLayout>
+        <!-- RecyclerView for prayer requests -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/prayerRequestsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/item_prayer_request" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

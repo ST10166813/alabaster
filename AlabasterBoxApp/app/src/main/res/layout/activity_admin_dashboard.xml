@@ -1,83 +1,339 @@
-<LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
-    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFF7F0"
+    tools:context=".admin.AdminDashboardActivity">
 
-    <TextView
-        android:id="@+id/adminTitle"
+    <!-- Soft Background -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/admin_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Welcome Header -->
+    <LinearLayout
+        android:id="@+id/headerSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Admin Dashboard"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="24dp"
-        android:textColor="@color/black"/>
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp">
 
-    <Button
-        android:id="@+id/manageTestimoniesBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Manage Testimonies (0 pending)"
-        android:backgroundTint="@color/black"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="16dp"
-        android:padding="12dp"
-        android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/adminTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Admin Dashboard"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/comfortaa_regular"
+            android:letterSpacing="0.05"
+            android:shadowColor="#26000000"
+            android:shadowDx="0"
+            android:shadowDy="3"
+            android:shadowRadius="4"
+            android:elevation="3dp" />
 
+        <!-- Green Divider -->
+        <View
+            android:layout_width="70dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="8dp"
+            android:background="#2E7D32"
+            android:alpha="0.9"
+            android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:id="@+id/viewPrayerRequestsBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Prayer Requests"
-        android:backgroundTint="@color/black"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="16dp"
-        android:padding="12dp"
-        android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage community, events, and updates"
+            android:textSize="13sp"
+            android:textColor="#7A7A7A"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/comfortaa_regular" />
+    </LinearLayout>
 
+    <!-- Scrollable card section -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollSection"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="24dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/headerSection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
-        android:id="@+id/volviewBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Volunteers "
-        android:backgroundTint="@color/black"
-        android:textColor="@android:color/white"
-        android:padding="12dp"
-        android:textSize="16sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layoutAnimation="@anim/layout_stagger_fade_in">
 
-    <Button
-        android:id="@+id/addEventBtn"
-        android:text="Add New Event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"/>
+            <!-- Manage Testimonies -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/manageTestimoniesBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:strokeColor="#2E7D32"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-    <Button
-        android:id="@+id/btndon"
-        android:text="Donations"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="18dp">
 
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/testimony_icon"
+                        android:tint="#2E7D32"
+                        android:layout_marginEnd="16dp" />
 
-    <Button
-        android:id="@+id/logoutBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:backgroundTint="@color/black"
-        android:textColor="@android:color/white"
-        android:padding="12dp"
-        android:textSize="16sp"/>
+                    <!-- NEW: label with ID for dynamic text -->
+                    <TextView
+                        android:id="@+id/tvManageTestimoniesLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Manage Testimonies (0 pending)"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/comfortaa_regular" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-</LinearLayout>
+            <!-- Prayer Requests -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/viewPrayerRequestsBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:strokeColor="#2E7D32"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/prayer_icon"
+                        android:tint="#2E7D32"
+                        android:layout_marginEnd="16dp" />
+
+                    <!-- NEW ID -->
+                    <TextView
+                        android:id="@+id/tvPrayerLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View Prayer Requests"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/comfortaa_regular" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Volunteers -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/volviewBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:strokeColor="#2E7D32"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/volunteer_icon"
+                        android:tint="#2E7D32"
+                        android:layout_marginEnd="16dp" />
+
+                    <!-- NEW ID -->
+                    <TextView
+                        android:id="@+id/tvVolunteersLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View Volunteers"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/comfortaa_regular" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Add Event -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/addEventBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:strokeColor="#2E7D32"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/event_icon"
+                        android:tint="#2E7D32"
+                        android:layout_marginEnd="16dp" />
+
+                    <!-- NEW ID -->
+                    <TextView
+                        android:id="@+id/tvAddEventLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add New Event"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/comfortaa_regular" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Donations -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btndon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:strokeColor="#2E7D32"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/donation_icon_black"
+                        android:tint="#2E7D32"
+                        android:layout_marginEnd="16dp" />
+
+                    <!-- NEW ID -->
+                    <TextView
+                        android:id="@+id/tvDonationsLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View Donations"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/comfortaa_regular" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Logout -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/logoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:strokeColor="#C62828"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/logout_button"
+                        android:tint="#C62828"
+                        android:layout_marginEnd="16dp" />
+
+                    <!-- NEW ID -->
+                    <TextView
+                        android:id="@+id/tvLogoutLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Logout"
+                        android:textSize="16sp"
+                        android:textColor="#C62828"
+                        android:fontFamily="@font/comfortaa_regular" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
