@@ -104,7 +104,7 @@ class EventsActivity : AppCompatActivity() {
 
         // 🧭 Bottom Navigation
 
-        // HOME 
+        // HOME
         binding.eventsLayout.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
