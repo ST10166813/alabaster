@@ -1,11 +1,14 @@
 package com.example.alabaster.admin
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alabaster.PrayerRequestAdapter
+import com.example.alabaster.R
 import com.example.alabaster.databinding.ActivityAdminPrayerRequestsBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,12 +33,25 @@ class AdminPrayerRequestsActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
         prayerList = ArrayList()
-        adapter = PrayerRequestAdapter(prayerList)
+        adapter = PrayerRequestAdapter(prayerList) { id ->
+            deletePrayerRequest(id)
+        }
         recyclerView.adapter = adapter
+
 
         dbRef = FirebaseDatabase.getInstance().getReference("prayer_requests")
 
+
+        recyclerView.adapter = adapter
+
         fetchRequests()
+
+        val ivBack = findViewById<ImageView>(R.id.ivBack)
+        ivBack.setOnClickListener {
+            val intent = Intent(this, AdminDashboardActivity::class.java)
+            startActivity(intent)
+            finish() // close current screen so it doesn’t stack
+        }
     }
 
     private fun fetchRequests() {
@@ -58,4 +74,18 @@ class AdminPrayerRequestsActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun deletePrayerRequest(id: String) {
+        if (id.isNotEmpty()) {
+            dbRef.child(id).removeValue()
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Prayer Deleted ✅", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Delete Failed ❌", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+
 }

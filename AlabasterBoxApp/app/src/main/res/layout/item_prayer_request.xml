@@ -62,22 +62,18 @@
             android:fontFamily="@font/comfortaa_regular"
             android:layout_marginBottom="10dp"/>
 
-        <!-- Status Chip -->
-        <TextView
-            android:id="@+id/tvStatus"
+        <Button
+            android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status: Pending Prayer"
-            android:textSize="12.5sp"
-            android:textStyle="bold"
-            android:textColor="#2E7D32"
-            android:fontFamily="@font/comfortaa_regular"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            android:background="#1A2E7D32"
-            android:layout_gravity="start"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"/>
+            android:text="Delete"
+            android:padding="6dp"
+            android:textSize="12sp"
+            android:backgroundTint="#D32F2F"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="6dp"/>
+
+
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

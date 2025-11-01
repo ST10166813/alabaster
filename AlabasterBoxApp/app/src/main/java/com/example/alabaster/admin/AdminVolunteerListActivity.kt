@@ -1,8 +1,11 @@
 package com.example.alabaster.admin
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.alabaster.R
 import com.example.alabaster.adapter.VolunteerAdapter
 import com.example.alabaster.databinding.ActivityAdminVolunteerListBinding
 import com.example.alabaster.model.Volunteer
@@ -42,5 +45,12 @@ class AdminVolunteerListActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {}
         })
+
+        val ivBack = findViewById<ImageView>(R.id.ivBack)
+        ivBack.setOnClickListener {
+            val intent = Intent(this, AdminDashboardActivity::class.java)
+            startActivity(intent)
+            finish() // close current screen so it doesn’t stack
+        }
     }
 }

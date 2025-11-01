@@ -1,8 +1,11 @@
 package com.example.alabaster.admin
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.alabaster.R
 import com.example.alabaster.adapter.DonationAdapter
 import com.example.alabaster.databinding.ActivityAdminDonationsBinding
 import com.example.alabaster.model.Donation
@@ -22,6 +25,13 @@ class AdminDonationsActivity : AppCompatActivity() {
 
         binding.rvDonations.layoutManager = LinearLayoutManager(this)
         loadDonations()
+
+        val ivBack = findViewById<ImageView>(R.id.ivBack)
+        ivBack.setOnClickListener {
+            val intent = Intent(this, AdminDashboardActivity::class.java)
+            startActivity(intent)
+            finish() // close current screen so it doesn’t stack
+        }
     }
 
     private fun loadDonations() {
